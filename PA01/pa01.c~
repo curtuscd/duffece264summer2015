@@ -41,7 +41,7 @@ void printArray(int * array, int len)
 void test_arraySum(int * array, int len, int expected)
 {
     printArray(array, len);
-    int sum = arraySummer(array, len);
+    int sum = arraySum(array, len);
     printf(". sum = %d, expected = %d.", sum, expected);
     if(sum != expected)
 	printf(" FAIL");
