@@ -39,12 +39,56 @@ if(*dest == NULL || lensrc + lendest + 1 >= *n)
 strcat(*dest,src);
  
 return *dest;
+
 }
 
 
 char * * explode(const char * str, const char * delims, int * arrLen)
 {
 
+int i;
+i = 0;
+int position;
+position = 0;
+
+while(str[position] != '\0')
+{
+	if(strchr(delims,str[position]) != NULL)
+	{
+	i++;
+	}
+	position++
+}
+char **strArr = malloc((i+1) * sizeof(char *));
+
+int next;
+next = 0;
+const char *start = str;
+position = 0;
+
+while(str[position] != '\0')
+{
+	if (strchr(delims, str[position]))
+	{
+	  int length;
+	  length = position - start;
+	  strArr[next] = malloc((length+1) * sizeof(char));
+	  memcpy(strArr[next], start, length * sizeof(char));
+	  strArr[next][length] = '\0';
+	  next++;
+	  start = position+1;
+	}
+      	position++;
+}
+
+int length = position-start;
+strArr[ind] = malloc((length+1) *sizeof(char));
+memcpy(strArr[next], start, length * sizeof(char));
+strArr[next][length] = '\0';
+
+*arrLen = i+1;
+
+return strArr; 
 
 
 }
