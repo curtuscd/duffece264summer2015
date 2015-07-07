@@ -161,9 +161,19 @@ return;
 
 void destroyStringArray(char * * strArr, int len)
 {
-
-
-
+int i;
+i = 0;
+if(strArr != NULL)
+{	
+for(i = 0;i < len;i++)
+	{
+	free(strArr[i]);
+	}
+free(strArr);
 }
+return;
+}
+
+
 
 
