@@ -5,25 +5,40 @@
 
 char * strcat_ex(char * * dest, int * n, const char * src)
 {
-size_t src_len = strlen(src);
-size_t len_dest = *dest==NULL ? 0 : strlen(*dest); 
-  if(*dest == NULL || len_src + len_dest + 1 >= *n)
-    {
-      *n=1 + (2 * (len_dest + len_src));
-      char *buffer = malloc(*n * sizeof(char));
-      *buffer='\0';
-      if(*dest!=NULL)
-	{
-	  strcpy(buffer,*dest);
-	}
-      free(*dest);
-      *dest = buffer;
-    }
-  strcat(*dest,src);
-  return *dest;
+
+size_t lensrc;
+lensrc = 0;
+size_t lendest;
+lendest = 0;
+
+if(src != NULL)
+{
+lensrc = strlen(src);
 }
 
+if(*dest != NULL)
+{
+lendest = *dest==NULL ? 0 : strlen(*dest); 
+}
 
+if(*dest == NULL || lensrc + lendest + 1 >= *n)
+{
+      	*n=1 + (2 * (lendest + lensrc));
+      	char *nothing = malloc(*n * sizeof(char));
+      	*nothing='\0';
+      
+	if(*dest! = NULL)
+	{
+	strcpy(nothing,*dest);
+	}
+      	
+	free(*dest);
+      	*dest = nothing;
+}
+
+strcat(*dest,src);
+ 
+return *dest;
 }
 
 
