@@ -115,12 +115,25 @@ return outcome;
 
 }
 
+int compareSTR(const void * first, const void * second)
+{
+  const char **ind1 = (const char **) first;
+  const char **ind2 = (const char **) second;
+  return strncmp(*ind1, *ind2);
+}
 
 void sortStringArray(char * * arrString, int len)
 {
 
 
 
+}
+
+int compareCHAR(const void * first, const void * second)
+{
+  const char *charfirst = (const char **) first;
+  const char *charsecond = (const char **) second;
+  return strncmp(*charfirst - *charsecond);
 }
 
 void sortStringCharacters(char * str)

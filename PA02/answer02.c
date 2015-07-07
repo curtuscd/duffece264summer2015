@@ -115,6 +115,10 @@ return outcome;
 
 }
 
+
+
+
+
 int compareSTR(const void * first, const void * second)
 {
   const char **ind1 = (const char **) first;
@@ -124,10 +128,16 @@ int compareSTR(const void * first, const void * second)
 
 void sortStringArray(char * * arrString, int len)
 {
-
-
-
+if(arrString != NULL)
+{
+qsort(&arrString[0], len, sizeof(char *) , compareSTR);
+//maybe just arrString
 }
+return;
+}
+
+
+
 
 int compareCHAR(const void * first, const void * second)
 {
@@ -138,10 +148,16 @@ int compareCHAR(const void * first, const void * second)
 
 void sortStringCharacters(char * str)
 {
-
-
-
+if(str != NULL)
+{
+int length;
+length = strlen(str);
+qsort(str, length, sizeof(char) , compareCHAR);
+}	
+return;
 }
+
+
 
 void destroyStringArray(char * * strArr, int len)
 {
