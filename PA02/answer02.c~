@@ -97,7 +97,21 @@ return strArr;
 char * implode(char * * strArr, int len, const char * glue)
 {
 
+int i;
+char * outcome = NULL;
+int length;
+length = 0;
 
+for(i=0; i < len; i++)
+{
+strcat_ex(&outcome, &length, strArr[i]);
+	if(i != len-1)
+	{
+	strcar_ex(&outcome, &length, glue);
+	}
+]
+
+return outcome;
 
 }
 
