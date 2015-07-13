@@ -43,7 +43,6 @@ int main(int argc, char ** argv)
 	
 	for(i=1;i < argc-1;i++)
 	{
-		
       		if(!strcmp(argv[i],"-v") || !strcmp(argv[i], "--invert-match"))
 		{
 	  	invert_match = 1;
@@ -56,13 +55,82 @@ int main(int argc, char ** argv)
 		{
 	  	line_number = 1;
 		}
-      		else if(argv[i][0] == '-')
-		{
-	  	fprintf(stderr,"Pattern can't start with '-'%s\n", argv[i]);
-	  	return 2;
-		}
 		else if(invert_match != 1 && quiet != 1 && line_number != 1)
 		{
 		fprintf(stderr,"Bogus command-line arguement %s\n", argv[i]);
+		return 2;
 		}
     	}
+		if(argv[argc-1][0] == '-')
+		{
+	  	fprintf(stderr,"Pattern can't start with '-'%s\n", argv[argc-1]);
+	  	return 2;
+		}
+
+	FILE *fptr = stdin;
+	int line = 0;
+	int match = 1;
+	char buffer[2000];
+	while(fgets(buffer,2000,stdin) != NULL)
+	{
+		line++;
+		if(strstr(buffer,argv[argc-1]) != NULL)
+		{
+			match = 0;
+		}
+		if(q == 1)
+		{
+			continue;
+		}
+		if(v == 1)
+		{
+			if(strstr(buffer,argv[argc-1]) == NULL)
+			{
+				if(n == 1)
+				{
+					fprintf(stdout,"%d:",line);
+				}
+				fprintf(stdout,"%s",buffer);
+			}
+			else
+			{
+				match = 0;
+			}
+		}
+		else
+		{
+			if(strstr(buffer,argv[argc-1]) != NULL)
+			{
+				if(n == 1)
+				{
+					fprintf(stdout,"%d:",line);
+				}
+				fprintf(stdout,"%s",buffer);
+				match = 0;
+			}
+		}
+	}
+	fclose(fptr);
+	return match;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
