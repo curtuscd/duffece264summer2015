@@ -1,0 +1,137 @@
+commit c5e59ace8e23adf863390c741362525ecb82e361
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 15:37:13 2015 -0400
+
+    grep lite done
+
+commit 8411b9c9ccaca6182cd27fab2e89302c156ff8d2
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 15:27:05 2015 -0400
+
+    grep lite about done
+
+commit 4a991065ddbfb7c4697361e1f4e90f89e60d4f3d
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 15:06:34 2015 -0400
+
+    grep lite qvn and help
+
+commit e096eb7b09574120fc34e6f9178c08f66bd05fc8
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 14:46:41 2015 -0400
+
+    starting grep lite
+
+commit f17d75434ba320b63813b52fab51c24ec4b02271
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 14:39:14 2015 -0400
+
+    cat lite i think is good
+
+commit a30d8f666f2d5422d9606b23507563aad2023329
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 13:55:53 2015 -0400
+
+    cat lite help statement so far
+
+commit 749122928c7ea691e8c071343ca4a2b9917aee38
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 13:39:50 2015 -0400
+
+    echo lite testing
+
+commit 5f137887888c1fb120f987e74e40c4248dcc0020
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 13:35:20 2015 -0400
+
+    echo lite rough draft
+
+commit 1af8f0387f5a178f6b13667a150885a9beb8105b
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 13:26:46 2015 -0400
+
+    starting on PA04
+
+commit ba9af50e6344d7e86525bac2a46fdab1fd6a602d
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jul 13 13:26:01 2015 -0400
+
+    starting on PA03
+
+commit dacaef40700fa7377c3538e117d0d74aa6e0e1bd
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 15:35:13 2015 -0400
+
+    a little bit of changes to PA02
+
+commit 3a3818aaa2beba52935447910a109a867c66e93b
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 15:29:46 2015 -0400
+
+    i believe the array has been blasted
+
+commit 6e0de5bd7825a08e7da9404e768dca0a24419f34
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 15:24:52 2015 -0400
+
+    did the sorting ones
+
+commit 5678d3648e8250c0678e5cf7bf99651588da08d8
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 15:17:44 2015 -0400
+
+    wrote some comparing functions
+
+commit 6321902855951a82925191ce9e75cb95de98bf5d
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 15:06:30 2015 -0400
+
+    implode might work
+
+commit 31c7fa97d2911f610ffa6d34d72a1c6fb0cb4505
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 14:57:52 2015 -0400
+
+    second one done i think
+
+commit 2afd34cf6ae9d96724f5065e0669d014a88be069
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 14:23:55 2015 -0400
+
+    little edits to first one
+
+commit 33dbdb8edaa78dacc31e09e080c00bacd16ac6e5
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 13:58:46 2015 -0400
+
+    did the first one
+
+commit 0eb640e070121f7270bcb5612be5c51cab88e10f
+Author: curtuscd <duffc@purdue.edu>
+Date:   Tue Jul 7 13:19:46 2015 -0400
+
+    beginning to code
+
+commit 37436851bbc47380c50f540c98575fe9d5b36e77
+Author: curtuscd <duffc@purdue.edu>
+Date:   Mon Jun 22 15:20:36 2015 -0400
+
+    again
+
+commit 206f03fe1d431c00891705dd7f6731060cb4d109
+Author: curtuscd <duffc@purdue.edu>
+Date:   Fri Jun 19 15:13:33 2015 -0400
+
+    again
+
+commit 7728143f5e6bc6017b209054d362851466e325dc
+Author: curtuscd <duffc@purdue.edu>
+Date:   Fri Jun 19 14:08:00 2015 -0400
+
+    start homework
+
+commit 902404685758bc71d812fb3f33946fd79e69b1d4
+Author: curtuscd <duffc@purdue.edu>
+Date:   Fri Jun 19 13:34:26 2015 -0400
+
+    Initial commit
