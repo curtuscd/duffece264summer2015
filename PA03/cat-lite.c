@@ -12,10 +12,47 @@ void helpstatement()
   	"  cat-lite          Copy standard input to standard output.\n");
 }
 
+int concatenate(const char * name, FILE *foutput)
+{
+	FILE *finput;
+	int standard_in;
+	standard_in = strcmp(name,"-") == 0;
+ 
+	if(standard_in)
+  	{
+    	finput = stdin;
+  	}
+ 	else
+  	{
+    	finput = fopen(name, "r");
+  	}
+
+  	if (finput == NULL)
+  	{
+    	return 0;
+  	}
+
+  	int ch;
+  	while ((ch = fgetc(finput)) != EOF)
+	{
+    	fputc(ch, foutput);
+  	}
+
+  	if(!standard_in)
+	{
+    	fclose(finput);
+	}
+  	return 1;
+}
+
+
+
+
+
 int main(int argc, char **argv)
 {	
 	int i;
-  	for(i = 1; i < argc; i++)
+  	for(i = 1;i < argc;i++)
  	{
     	if(strcmp(argv[i],"--help") == 0)
     	{
@@ -24,11 +61,16 @@ int main(int argc, char **argv)
     	}
   	}
 
-
-
-
-
-
+	for(i=1;i < argc;i++)
+	{
+	if(concatenate(argv[i],stdout) == 0)
+    	{
+      	fprintf(stderr,"cat cannot open %s\n",argv[i]);
+      	return EXIT_FAILURE;
+    	}
+  	}
+  return 0;
+	
 
 }
 
