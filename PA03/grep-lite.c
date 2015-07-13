@@ -37,26 +37,55 @@ int main(int argc, char ** argv)
       		if(argv[i],"--help") == 0)
 		{
 		helpstatement();
+		return EXIT_SUCCESS;
 		}
 	}	
+	
+	for(i=1;i < argc-1;i++)
+	{
+		
+      		if(!strcmp(argv[i],"-v") || !strcmp(argv[i], "--invert-match"))
+		{
+	  	invert_match = 1;
+		}
+                else if(!strcmp(argv[i],"-q") || !strcmp(argv[i], "--quiet"))
+		{
+	  	quiet = 1;
+		}
+      		else if(!strcmp(argv[i],"-n") || !strcmp(argv[i], "--line-number"))
+		{
+	  	line_number = 1;
+		}
+		else if(invert_match != 1 && quiet != 1 && line_number != 1)
+		{
+		fprintf(stderr,"Bogus command-line arguement %s\n", argv[i]);
+		}
+    	}
+		if(argv[i][0] == '-')
+		{
+	  	fprintf(stderr,"Pattern can't start with '-'%s\n", argv[i]);
+	  	return 2;
+		}
 
-	      	
 
-	if(!strcmp(argv[i],"-q") || !strcmp(argv[i], "--quiet"))
-	{
-	  quiet = 1;
-	}
-      else if(!strcmp(argv[i],"-v") || !strcmp(argv[i], "--invert-match"))
-	{
-	  invert = 1;
-	}
-      else if(!strcmp(argv[i],"-n") || !strcmp(argv[i], "--line-number"))
-	{
-	  lineSwitch = 1;
-	}
-      else if(argv[i][0] == '-')
-	{
-	  fprintf(stderr, "Invalid argument %s\n", argv[i]);
-	  return 2;
-	}
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
