@@ -115,25 +115,38 @@ Image * Image_load(const char * filename);
 
 int Image_save(const char * filename, Image * image);
 {
-  FILE * fptr = fopen(filename, "w");
-  ImageHeader head;
+  	FILE * fpointer = fopen(filename, "w");
+  	ImageHeader heading;
 
-  head.magic_number = ECE264_IMAGE_MAGIC_NUMBER;
-  head.width = image->width;
-  head.height = image->height;
-  head.comment_len = strlen(image->comment) + 1;
+  	heading.magic_number = ECE264_IMAGE_MAGIC_NUMBER;
+  	heading.width = image->width;
+  	heading.height = image->height;
+  	heading.comment_len = strlen(image->comment) + 1;
 
-  fwrite(&head, sizeof(ImageHeader), 1, fptr);
-  fprintf(fptr,"%s%c", image->comment, '\0');
-  
+  	fwrite(&heading, sizeof(ImageHeader), 1, fptr);
+  	fprintf(fpointer,"%s%c", image->comment, '\0');
+  	
+	if(fpointer = NULL)
+	{
+	return 0;
+	}
 
-  int i;
-  for(i = 0; i < image->width * image->height; i++)
-    {
-      fprintf(fptr, "%c", image->data[i]);
-    }
-  
-  fclose(fptr);
+  	int i;
+  	i=0;
+	while(i<image->height*image->width)
+	{	
+	fprintf(fpointer, "%c", image->data[i]);
+	i++;
+	}
+	
+/*
+	for(i = 0; i < image->width * image->height; i++)
+    	{
+      	fprintf(fptr, "%c", image->data[i]);
+    	}
+*/
+
+  	fclose(fpointer);
   return 1;
 }
 
