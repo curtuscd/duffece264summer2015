@@ -147,10 +147,10 @@ void Image_free(Image * image);
 void linearNormalization(int width, int height, uint8_t * intensity);
 {
   int i;
-  uint8_t max;
-  uint8_t min;
-  max = intensity[0];
-  min = intensity[0];
+  uint8_t maximum;
+  uint8_t minimum;
+  maximum = intensity[0];
+  minimum = intensity[0];
   
 /*	
   	for(i=1; i < height * width; i++)
@@ -173,13 +173,13 @@ void linearNormalization(int width, int height, uint8_t * intensity);
 	i=1;
   	while(i<width*height)
     	{
-      		if(intensity[i] > max)
+      		if(intensity[i]<minimum)
 		{
-	  	max = intensity[i];
+	  	minimum = intensity[i];
 		}
-      		if(intensity[i] < min)
+      		if(intensity[i]>maximum)
 		{
-	  	min = intensity[i];
+	  	maximum = intensity[i];
 		}
 	i++;
     	}
@@ -187,7 +187,7 @@ void linearNormalization(int width, int height, uint8_t * intensity);
 	i=0;
 	while(i<width*height)
 	{
-	intensity[i] = (intensity[i] - min) * 255 / (max - min);
+	intensity[i] = (intensity[i] - minimum) * 255 / (maximum - minimum);
 	i++;
 	}
 }
