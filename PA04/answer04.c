@@ -149,25 +149,46 @@ void linearNormalization(int width, int height, uint8_t * intensity);
   int i;
   uint8_t max;
   uint8_t min;
-
   max = intensity[0];
-  min = max;
+  min = intensity[0];
   
-  for(i=1; i < height * width; i++)
-    {
-      if(intensity[i] > max)
-	{
-	  max = intensity[i];
-	}
-      if(intensity[i] < min)
-	{
-	  min = intensity[i];
-	}
-    }
+/*	
+  	for(i=1; i < height * width; i++)
+    	{
+      		if(intensity[i] > max)
+		{
+	  	max = intensity[i];
+		}
+      		if(intensity[i] < min)
+		{
+	  	min = intensity[i];
+		}
+    	}
+ 
+  	for(i = 0; i < height * width; i++)
+    	{
+      		intensity[i] = (intensity[i] - min) * 255 / (max - min);
+    	}
+*/
+	i=1;
+  	while(i<width*height)
+    	{
+      		if(intensity[i] > max)
+		{
+	  	max = intensity[i];
+		}
+      		if(intensity[i] < min)
+		{
+	  	min = intensity[i];
+		}
+	i++;
+    	}
 
-  for(i = 0; i < height * width; i++)
-    {
-      intensity[i] = (intensity[i] - min) * 255 / (max - min);
-    }
+	i=0;
+	while(i<width*height)
+	{
+	intensity[i] = (intensity[i] - min) * 255 / (max - min);
+	i++;
+	}
 }
 
