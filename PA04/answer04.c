@@ -11,105 +11,104 @@
 
 Image * Image_load(const char * filename);
 {
-  FILE * fptr = NULL;
-  int var_read;
-  ImageHeader head;
-
-  size_t Num_bytes = 0;
+  FILE * fpointer = NULL;
+  ImageHeader heading;
   Image * image = NULL;
   Image * image_temp = NULL;
+  size_t howmanybytes = 0;
+  int readit;
   
-  fptr = fopen(filename, "r");
-  if(fptr == NULL)
+  fpointer = fopen(filename, "r");
+  if(fpointer == NULL)
     {
       return image;
     }
   
-  var_read = fread(&head, sizeof(ImageHeader),1,fptr);
-  if(var_read == 0){
-    fclose(fptr);
+  readit = fread(&heading, sizeof(ImageHeader),1,fpointer);
+  if(readit == 0){
+    fclose(fpointer);
     return image;
   }
 
-  if(head.height == 0 || head.width == 0)
+  if(heading.height == 0 || heading.width == 0)
     {
-      fclose(fptr);
+      fclose(fpointer);
       return image;
     }
 
-  if(ECE264_IMAGE_MAGIC_NUMBER != head.magic_number)
+  if(ECE264_IMAGE_MAGIC_NUMBER != heading.magic_number)
     {
-      fclose(fptr);
+      fclose(fpointer);
       return image;
     }
 
-  if(head.comment_len == 0)
+  if(heading.comment_len == 0)
     {
-      fclose(fptr);
+      fclose(fpointer);
       return image;
     }
   
-  char * arr_Com = malloc(head.comment_len * sizeof(char));
+  char * arr_Com = malloc(heading.comment_len * sizeof(char));
   if(arr_Com == NULL)
     {
-      fclose(fptr);
+      fclose(fpointer);
       free(arr_Com);
       return image_temp;
     }
   
-  var_read = fread(arr_Com, head.comment_len, 1, fptr);
-  if(head.comment_len != var_read)
+  readit = fread(arr_Com, heading.comment_len, 1, fpointer);
+  if(heading.comment_len != readit)
     {
-      fclose(fptr);
+      fclose(fpointer);
       free(arr_Com);
       return image_temp;
     }
   
-  if(arr_Com[head.comment_len - 1] != '\0')
+  if(arr_Com[heading.comment_len - 1] != '\0')
     {
-      fclose(fptr);
+      fclose(fpointer);
       free(arr_Com);
       return image;
     }
   
-  Num_bytes = sizeof(uint8_t) * head.height * head.width;
+  howmanybytes = sizeof(uint8_t) * heading.height * heading.width;
   image = malloc(sizeof(Image));
   image->comment = malloc(sizeof(char)*(strlen(arr_Com) + 1));
-  image->height = head.height;
-  image->width = head.width;
+  image->height = heading.height;
+  image->width = heading.width;
   strcpy(image->comment, arr_Com);
-  image->data = malloc(Num_bytes);
+  image->data = malloc(howmanybytes);
   if(image->data == NULL)
     {
       Image_free(image);
-      fclose(fptr);
+      fclose(fpointer);
       return image_temp;
     } 
   
-  var_read = fread(image->data, sizeof(uint8_t), Num_bytes, fptr);
+  readit = fread(image->data, sizeof(uint8_t), howmanybytes, fpointer);
 
-  if(var_read != Num_bytes)
+  if(readit != howmanybytes)
     {
       Image_free(image);
       free(arr_Com);
-      fclose(fptr);
+      fclose(fpointer);
       return image_temp;
     }
 
   uint8_t bytes;
   
-  var_read = fread(&bytes, sizeof(uint8_t), 1, fptr);
+  readit = fread(&bytes, sizeof(uint8_t), 1, fpointer);
 
-  if(var_read != 0)
+  if(readit != 0)
     {
       Image_free(image);
       free(arr_Com);
-      fclose(fptr);
+      fclose(fpointer);
       return image_temp;
     }
    
   free(arr_Com);
-  fclose(fptr);
+  fclose(fpointer);
   return(image);
 }
 

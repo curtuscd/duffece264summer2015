@@ -11,45 +11,45 @@
 
 Image * Image_load(const char * filename);
 {
-  FILE * fptr = NULL;
-  int var_read;
-  ImageHeader head;
+  FILE * fpointer = NULL;
+  int readit;
+  ImageHeader heading;
 
-  size_t Num_bytes = 0;
+  size_t howmanybytes = 0;
   Image * image = NULL;
   Image * image_temp = NULL;
   
-  fptr = fopen(filename, "r");
-  if(fptr == NULL)
+  fpointer = fopen(filename, "r");
+  if(fpointer == NULL)
     {
       return image;
     }
   
-  var_read = fread(&head, sizeof(ImageHeader),1,fptr);
-  if(var_read == 0){
-    fclose(fptr);
+  readit = fread(&head, sizeof(ImageHeader),1,fpointer);
+  if(readit == 0){
+    fclose(fpointer);
     return image;
   }
 
-  if(head.height == 0 || head.width == 0)
+  if(heading.height == 0 || heading.width == 0)
     {
-      fclose(fptr);
+      fclose(fpointer);
       return image;
     }
 
-  if(ECE264_IMAGE_MAGIC_NUMBER != head.magic_number)
+  if(ECE264_IMAGE_MAGIC_NUMBER != heading.magic_number)
     {
-      fclose(fptr);
+      fclose(fpointer);
       return image;
     }
 
-  if(head.comment_len == 0)
+  if(heading.comment_len == 0)
     {
-      fclose(fptr);
+      fclose(fpointer);
       return image;
     }
   
-  char * arr_Com = malloc(head.comment_len * sizeof(char));
+  char * arr_Com = malloc(heading.comment_len * sizeof(char));
   if(arr_Com == NULL)
     {
       fclose(fptr);
@@ -57,17 +57,17 @@ Image * Image_load(const char * filename);
       return image_temp;
     }
   
-  var_read = fread(arr_Com, head.comment_len, 1, fptr);
-  if(head.comment_len != var_read)
+  readit = fread(arr_Com, head.comment_len, 1, fptr);
+  if(head.comment_len != readit)
     {
-      fclose(fptr);
+      fclose(fpointer);
       free(arr_Com);
       return image_temp;
     }
   
   if(arr_Com[head.comment_len - 1] != '\0')
     {
-      fclose(fptr);
+      fclose(fpointer);
       free(arr_Com);
       return image;
     }
@@ -82,34 +82,34 @@ Image * Image_load(const char * filename);
   if(image->data == NULL)
     {
       Image_free(image);
-      fclose(fptr);
+      fclose(fpointer);
       return image_temp;
     } 
   
-  var_read = fread(image->data, sizeof(uint8_t), Num_bytes, fptr);
+  readit = fread(image->data, sizeof(uint8_t), Num_bytes, fpointer);
 
-  if(var_read != Num_bytes)
+  if(readit != Num_bytes)
     {
       Image_free(image);
       free(arr_Com);
-      fclose(fptr);
+      fclose(fpointer);
       return image_temp;
     }
 
   uint8_t bytes;
   
-  var_read = fread(&bytes, sizeof(uint8_t), 1, fptr);
+  readit = fread(&bytes, sizeof(uint8_t), 1, fpointer);
 
-  if(var_read != 0)
+  if(readit != 0)
     {
       Image_free(image);
       free(arr_Com);
-      fclose(fptr);
+      fclose(fpointer);
       return image_temp;
     }
    
   free(arr_Com);
-  fclose(fptr);
+  fclose(fpointer);
   return(image);
 }
 
@@ -159,11 +159,11 @@ void Image_free(Image * image);
 
 void linearNormalization(int width, int height, uint8_t * intensity);
 {
-  int i;
-  uint8_t maximum;
-  uint8_t minimum;
-  maximum = intensity[0];
-  minimum = intensity[0];
+  	int i;
+  	uint8_t maximum;
+  	uint8_t minimum;
+  	maximum = intensity[0];
+  	minimum = intensity[0];
   
 /*	
   	for(i=1; i < height * width; i++)
