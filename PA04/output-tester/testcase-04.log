@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 03 :: images/bmps/04-unnormalized-nelsonmandela.bmp 
+ * Test linear normalization on bmp file
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-04.memcheck.log.

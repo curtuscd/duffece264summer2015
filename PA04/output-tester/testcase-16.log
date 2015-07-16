@@ -1,0 +1,8 @@
+
+/**
+ * Testcase 15 :: images/corrupt-testcases/01-incomplete-header.ee264 
+ * File has less than 128 bytes, and thus too small to contain a complete header. (Image_load should return NULL.)
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-16.memcheck.log.
+Image_load(...) should return NULL for corrupt images

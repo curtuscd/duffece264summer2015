@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 01 :: images/bmps/02-unnormalized-cat-chess.bmp 
+ * Test linear normalization on bmp file
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-02.memcheck.log.

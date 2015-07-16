@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 00 :: images/bmps/01-unnormalized-smile.bmp 
+ * Test linear normalization on bmp file
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-01.memcheck.log.

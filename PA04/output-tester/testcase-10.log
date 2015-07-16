@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 09 :: images/bmps/05-sagan-stamp.bmp 
+ * Test writing ee264 format
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-10.memcheck.log.

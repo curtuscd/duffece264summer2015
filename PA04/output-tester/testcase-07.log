@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 06 :: images/bmps/02-cat-chess.bmp 
+ * Test writing ee264 format
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-07.memcheck.log.

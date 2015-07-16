@@ -1,0 +1,8 @@
+
+/**
+ * Testcase 17 :: images/corrupt-testcases/03-width0.ee264 
+ * File header specifies 0 width, which is an error that you must check for. (Image_load should return NULL.)
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-18.memcheck.log.
+Image_load(...) should return NULL for corrupt images

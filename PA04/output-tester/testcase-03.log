@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 02 :: images/bmps/03-unnormalized-hawkes-bay-NZ.bmp 
+ * Test linear normalization on bmp file
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-03.memcheck.log.

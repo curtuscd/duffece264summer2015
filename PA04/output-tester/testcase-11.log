@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 10 :: images/01-smile.ee264 
+ * Test reading ee264 format
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-11.memcheck.log.

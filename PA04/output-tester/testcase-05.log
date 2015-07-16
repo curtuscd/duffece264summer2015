@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 04 :: images/bmps/05-unnormalized-sagan-stamp.bmp 
+ * Test linear normalization on bmp file
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-05.memcheck.log.

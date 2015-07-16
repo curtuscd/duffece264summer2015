@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 12 :: images/03-hawkes-bay-NZ.ee264 
+ * Test reading ee264 format
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-13.memcheck.log.

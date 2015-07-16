@@ -1,0 +1,7 @@
+
+/**
+ * Testcase 08 :: images/bmps/04-nelsonmandela.bmp 
+ * Test writing ee264 format
+ */
+   Memory errors detected.
+   Valgrind log saved in output-tester/testcase-09.memcheck.log.
